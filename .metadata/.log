@@ -11,3 +11,29 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.
 
 !ENTRY ch.qos.logback.classic 1 0 2024-07-02 21:34:54.485
 !MESSAGE Logback config file: /Users/golflefleur/Desktop/Find-My/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.6.1.20240411-1122.xml
+!SESSION 2024-07-03 13:35:54.851 -----------------------------------------------
+eclipse.buildId=4.32.0.20240606-1231
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/golflefleur/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/golflefleur/.eclipse_keyring
+
+!ENTRY ch.qos.logback.classic 1 0 2024-07-03 13:35:58.505
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-07-03 13:36:10.412
+!MESSAGE Logback config file: /Users/golflefleur/Desktop/Find-My/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.6.1.20240411-1122.xml
+!SESSION 2024-07-03 13:41:49.273 -----------------------------------------------
+eclipse.buildId=4.32.0.20240606-1231
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/golflefleur/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/golflefleur/.eclipse_keyring
+
+!ENTRY ch.qos.logback.classic 1 0 2024-07-03 13:41:53.437
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-07-03 13:41:57.445
+!MESSAGE Logback config file: /Users/golflefleur/Desktop/Find-My/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.6.1.20240411-1122.xml
