@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <style>
+
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background-color: #e9dada;
+            }
+
+            header {
+
+                background-color: rgb(214, 80, 80);
+                text-align: left;
+                padding: 10px
+                
+            }
+
+            header nav a {
+                color: whitesmoke;
+                margin: 10px;
+                text-decoration: none;
+            }
+
+            .main-header {
+                background-image: url('https://via.placeholder.com/1200x300');
+                height: 100px;
+                background-size: cover;
+                background-position: center;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .main-header h1{
+                background-color: rgb(101, 99, 99);
+                padding: 10px 20px;
+                color: whitesmoke
+
+            }
+
+            .container {
+                display: flex;
+                margin: 20px;
+            }
+
+            aside {
+
+                width: 120px;
+                background-color: #e1c16e;
+                padding: 20px;
+                height: 100%;
+
+            }
+
+            aside nav a{
+                display: block;
+                color: #000;
+                margin: 10px 0;
+                text-decoration: none;
+            }
+
+            
+            section {
+                flex-grow: 1;
+                background-color: white;
+                padding: 20px;
+                margin-left: 20px;
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            li {
+                display: flex;
+                margin-bottom: 20px;
+            }
+
+            li img {
+                width: 100px;
+                height: 100px;
+                margin-right: 20px;
+            }
+            
+
+            footer {
+                background-color: rgb(101, 99, 99);
+                color: whitesmoke;
+                padding: 10px;
+                text-align: center;
+                position: absolute;
+                bottom: 0%;
+                width: 100%;
+            }
+
+            footer p {
+                margin: 5px;
+            }
+
+            .footer-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-icons {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+            }
+
+            .footer-icons li {
+                list-style: none;
+                margin: 0 15px;
+                display: flex;
+                align-items: center;
+            }
+
+            .footer-icons li img {
+                width: 24px;
+                height: 24px;
+                margin-right: 10px;
+            }
+
+
+
+        </style>
+    </head>
+
+    <body>
+
+        <header> 
+            <nav>
+                <a href = "">Home</a>
+                <a href = "">About</a>
+                <a href = "">Contact</a>
+
+            </nav>
+        </header>
+
+        <div class="main-header">
+            <h1>Item Recommendation</h1>
+        </div>
+        
+        <div class = "container">
+
+            <aside>
+                <nav>
+                    <a href="#">Nearby</a>
+                    <a href="#">My Favorites</a>
+                    <a href="#">Recommendation</a>
+                </nav>
+            </aside>
+
+            <section>
+                <ul>
+                    <li>
+                        <img src="https://s3-media3.fl.yelpcdn.com/bphoto/EmBj4qlyQaGd9Q4oXEhEeQ/ms.jpg" alt="Item Image" />
+                        <div>
+                            <a href="#">The Kickin' Crab</a>
+                            <p>Category: Seafood, Cajun/Creole, cajun</p>
+                            <p>2675 Cropley Ave<br/>North Valley<br/> San Jose<br/> CA 95132</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <footer>
+
+            <div class = 'footer-content'>
+                <p> What We do</p>
+
+                <p> "Find the right place for you" </p>
+            </div>
+
+            <ul class="footer-icons">
+                <li>
+                    <img src="images/user-regular.svg" alt="Person Icon"> <!-- Replace with actual icon URL -->
+                    <span>Ben Li</span>
+                </li>
+                <li>
+                    <img src="images/envelope-regular.svg" alt="Email Icon"> <!-- Replace with actual icon URL -->
+                    <span>hal092@ucsd.edu</span>
+                </li>
+                <li>
+                    <img src="images/phone-solid.svg" alt="Phone Icon"> <!-- Replace with actual icon URL -->
+                    <span>3478204899</span>
+                </li>
+            </ul>
+
+        </footer>
+
+    </body>
+
+ 
+</html>
