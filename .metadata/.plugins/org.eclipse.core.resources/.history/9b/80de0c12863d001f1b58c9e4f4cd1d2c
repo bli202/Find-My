@@ -45,7 +45,6 @@ public class RecommendItem extends HttpServlet {
 		out.print(array);
 		out.flush();
 		out.close();
-		RpcHelper.writeJsonArray(response, array);
 
 	}
 
