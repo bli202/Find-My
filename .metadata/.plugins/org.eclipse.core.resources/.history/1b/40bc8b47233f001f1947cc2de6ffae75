@@ -1,0 +1,35 @@
+package external;
+
+import org.json.*;
+
+public class TicketMasterAPI {
+	
+	private final static String URL = "https://app.ticketmaster.com/discovery/v2/events.json";
+	private static final String DEFAULT_TERM = ""; // no restriction
+	private static final String API_KEY = System.getenv("TICKETMASTER_API_KEY");
+	
+	public JSONArray search(double lat, double lon, String term) {
+		
+		return new JSONArray();
+		
+    }
+	
+	private void queryAPI(double lat, double lon) {
+		
+		JSONArray events = search(lat, lon, null);
+		try {
+		    for (int i = 0; i < events.length(); i++) {
+		        JSONObject event = events.getJSONObject(i);
+		        System.out.println(event);
+		    }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	
+
+	
+
+}

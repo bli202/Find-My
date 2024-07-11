@@ -36,7 +36,7 @@ public class RpcHelper {
 	//Write a JSONArray to http response
 	public static void writeJsonArray(HttpServletResponse response, JSONArray array) {
 		
-		try {
+try {
 			
 			response.setContentType("application/json");
 			response.addHeader("Access-Control-Allow-Origin", "*");
@@ -54,5 +54,10 @@ public class RpcHelper {
 		
 		
 	}
+	
+	
+
+	
+	
 
 }
