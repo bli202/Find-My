@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+/Users/golflefleur/Desktop/Find-My/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-3306270405.index
-1498771623.index
-1234244087.index
-3878467117.index
-1786127619.index
-552507882.index
