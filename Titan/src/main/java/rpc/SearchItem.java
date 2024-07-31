@@ -1,8 +1,11 @@
 package rpc;
-
+import java.util.*;
 import java.io.*;
 
 import org.json.*;
+
+import entity.Item;
+import external.TicketMasterAPI;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,21 +33,26 @@ public class SearchItem extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("application/json");
-		response.addHeader("Access-Control-Allow-Origin", "*");
-		PrintWriter out = response.getWriter();
+		double lat = Double.parseDouble(request.getParameter("lat"));
+		double lon = Double.parseDouble(request.getParameter("lon"));
+		// Term can be empty or null.
+		String term = request.getParameter("term");
+		TicketMasterAPI tmAPI = new TicketMasterAPI();
+		List<Item> items = tmAPI.search(lat, lon, term);
 
-		JSONArray array = new JSONArray();
+		List<JSONObject> list = new ArrayList<>();
 		try {
-			array.put(new JSONObject().put("username", "abcd"));
-			array.put(new JSONObject().put("username", "1234"));
-		} catch (JSONException e) {
+			for (Item item : items) {
+				// Add a thin version of item object
+				JSONObject obj = item.toJSONObject();
+				list.add(obj);
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		out.print(array);
-		out.flush();
-		out.close();
+		JSONArray array = new JSONArray(list);
 		RpcHelper.writeJsonArray(response, array);
+
 	}
 
 
