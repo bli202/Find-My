@@ -1,5 +1,6 @@
-=<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="description" content="Item Recommendation">
@@ -9,7 +10,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles/main.css">
 </head>
+
 <body>
+
   <header class="top-header">
     <nav class="top-nav">
       <a href="#">Home</a>
@@ -17,6 +20,7 @@
       <a href="#">About</a>
     </nav>
     <span id="welcome-msg"></span>
+    <a id="logout-link" href="logout">Logout</a>
     <i id="avatar" class="avatar fa fa-user fa-2x"></i>
   </header>
   
@@ -29,6 +33,16 @@
     </header>
 
     <section class="main-section">
+    
+     <div id="login-form">
+ 	    <label for="username">Username:</label>
+ 	    <input id="username" name="username" type="text">
+ 	    <label for="password">Password:</label>
+ 	    <input id="password" name="password" type="password">
+ 	    <button id="login-btn">Login</button>
+ 	    <p id="login-error"></p>
+    </div>
+    
       <aside id="item-nav">
         <div class="nav-icon">
           <i class="fa fa-sitemap fa-2x"></i>
@@ -68,12 +82,12 @@
   </div>
   
   <footer>
-    <p class="title">What We Do</p>
-    <p>"Help you find the best place around."</p>
+    <p class="title">What this does</p>
+    <p>"Find the best place for you"</p>
     <ul>
       <li>
-        <p><i class="fa fa-map-o fa-2x"></i></p>
-        <p>San Diego, CA</p>
+        <p><i class="fa fa-github fa-2x"></i></p>
+        <p><a href="https://github.com/bli202/Find-My" target="_blank" class="footer-link">bli202</a></p>
       </li>
       <li>
         <p><i class="fa fa-envelope-o fa-2x"></i></p>
