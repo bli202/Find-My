@@ -50,24 +50,21 @@ public class MySQLConnection implements DBConnection{
 			return;
 		}
 		
-	              String query = "INSERT IGNORE INTO history (user_id, item_id) VALUES (?, ?)";
+		String query = "INSERT IGNORE INTO history (user_id, item_id) VALUES (?, ?)";
+	  
+	    try {
+	            PreparedStatement statement = conn.prepareStatement(query);
+	            for (String itemId : itemIds) {
+	        	  
+	                statement.setString(1, userId);
+	                statement.setString(2, itemId);
+	                statement.execute();
 	              
-	              try {
-	            	  
-	                      PreparedStatement statement = conn.prepareStatement(query);
-	                      
-	                      for (String itemId : itemIds) {
-	                    	  
-	                          statement.setString(1, userId);
-	                          statement.setString(2, itemId);
-	                          statement.execute();
-	                          
-	                      }
-	                      
-	              } catch (SQLException e) {
-	                      e.printStackTrace();
-	              }
-		
+	            }
+	          
+	    } catch (SQLException e) {
+	            e.printStackTrace();
+	    }
 	}
 
 	@Override
