@@ -88,4 +88,23 @@ public interface DBConnection {
 	 * @return boolean
 	 */
 	public boolean verifyLogin(String userId, String password);
+	
+	/**
+     * Register a new user in the database.
+     * 
+     * @param userId
+     * @param password
+     * @param firstName
+     * @param lastName
+     * @return boolean indicating if the user was successfully created
+     */
+    public boolean registerUser(String userId, String password, String firstName, String lastName);
+    
+    /**
+     * Check if a user exists in the database by user ID.
+     * 
+     * @param userId the user ID to check
+     * @return true if the user exists, false otherwise
+     */
+    public boolean isUserExists(String userId);
 }

@@ -306,10 +306,10 @@ public class MySQLConnection implements DBConnection{
 			statement.setString(1, userId);
 			statement.setString(2, password);
 			ResultSet rs = statement.executeQuery();
-			
-			if (rs.next()) {
-				return true;
-			}
+
+	        if (rs.next()) {
+	            return true;
+	        }
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -318,6 +318,45 @@ public class MySQLConnection implements DBConnection{
 		return false;
 	}
 	
-	
+	@Override
+	public boolean registerUser(String userId, String password, String firstName, String lastName) {
+		
+		if (conn == null) {
+			return false;
+		}
+		
+		String sql = "INSERT INTO users (user_id, password, first_name, last_name) VALUES (?, ?, ?, ?)";
+		
+		try {
+	        PreparedStatement statement = conn.prepareStatement(sql);
+	        statement.setString(1, userId);
+	        // Use a hashing method like MD5, SHA, or bcrypt here for security
+	        statement.setString(2, password);
+	        statement.setString(3, firstName);
+	        statement.setString(4, lastName);
+	        return statement.executeUpdate() > 0;
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return false;
+	}
+    
+    @Override
+    public boolean isUserExists(String userId) {
+        if (conn == null) {
+            return false;
+        }
+
+        String sql = "SELECT user_id FROM users WHERE user_id = ?";
+        try {
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, userId);
+            ResultSet rs = statement.executeQuery();
+            return rs.next(); // If there's a result, the user exists
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
 }

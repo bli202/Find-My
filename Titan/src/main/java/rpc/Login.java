@@ -72,39 +72,75 @@ public class Login extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		 DBConnection conn = DBConnectionFactory.getDBConnection();
+		DBConnection conn = DBConnectionFactory.getDBConnection();
 		 
-			try {
-				
-				JSONObject input = RpcHelper.readJsonObject(request);
-				String userId = input.getString("user_id");
-				String pwd = input.getString("password");
+		try {
+			
+			JSONObject input = RpcHelper.readJsonObject(request);
+			String userId = input.getString("user_id");
+			String pwd = input.getString("password");
 
-				JSONObject obj = new JSONObject();
+			JSONObject obj = new JSONObject();
 
-				if (conn.verifyLogin(userId, pwd)) {
-					
-					HttpSession session = request.getSession();
-					session.setAttribute("user_id", userId);
-					// setting session to expire in 10 minutes
-					session.setMaxInactiveInterval(10 * 60);
-					// Get user name
-					String name = conn.getFullname(userId);
-					obj.put("status", "OK");
-					obj.put("user_id", userId);
-					obj.put("name", name);
-					
-				} else {
-					
-					response.setStatus(401);
-					
-				}
+			if (conn.verifyLogin(userId, pwd)) {
 				
-				RpcHelper.writeJsonObject(response, obj);
+				HttpSession session = request.getSession();
+				session.setAttribute("user_id", userId);
+				// setting session to expire in 10 minutes
+				session.setMaxInactiveInterval(10 * 60);
+				// Get user name
+				String name = conn.getFullname(userId);
+				obj.put("status", "OK");
+				obj.put("user_id", userId);
+				obj.put("name", name);
 				
-			} catch (JSONException e) {
-				e.printStackTrace();
+			} else {
+				
+				response.setStatus(401);
+				
 			}
+			
+			RpcHelper.writeJsonObject(response, obj);
+			
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		
+		/*
+		 * DBConnection conn = DBConnectionFactory.getDBConnection();
+		 
+		try {
+			
+			JSONObject input = RpcHelper.readJsonObject(request);
+			String userId = input.getString("user_id");
+			String pwd = input.getString("password");
+
+			JSONObject obj = new JSONObject();
+
+			if (conn.verifyLogin(userId, pwd)) {
+				
+				HttpSession session = request.getSession();
+				session.setAttribute("user_id", userId);
+				// setting session to expire in 10 minutes
+				session.setMaxInactiveInterval(10 * 60);
+				// Get user name
+				String name = conn.getFullname(userId);
+				obj.put("status", "OK");
+				obj.put("user_id", userId);
+				obj.put("name", name);
+				
+			} else {
+				
+				response.setStatus(401);
+				
+			}
+			
+			RpcHelper.writeJsonObject(response, obj);
+			
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		 */
 
 	}
 

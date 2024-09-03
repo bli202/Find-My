@@ -12,18 +12,120 @@
      * Initialize
      */
     function init() {
-        // Register event listeners
-		
 		$('login-btn').addEventListener('click', login);
-		$('nearby-btn').addEventListener('click', loadNearbyItems);
-		$('fav-btn').addEventListener('click', loadFavoriteItems);
-		$('recommend-btn').addEventListener('click', loadRecommendedItems);
-		
-		validateSession();
+        $('nearby-btn').addEventListener('click', loadNearbyItems);
+        $('fav-btn').addEventListener('click', loadFavoriteItems);
+        $('recommend-btn').addEventListener('click', loadRecommendedItems);
+
+        // Event listeners for toggling between login and registration forms
+        $('show-register').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevents the page from refreshing
+            showRegisterForm(); // Function to show registration form
+        });
+
+        $('show-login').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevents the page from refreshing
+            showLoginForm(); // Function to show login form
+        });
+
+        $('register-btn').addEventListener('click', registerUser); // Event listener for the register button
+
+        validateSession(); // Validates the user session on load
 
         var welcomeMsg = $('welcome-msg');
         welcomeMsg.innerHTML = 'Welcome, ' + user_fullname;
-        initGeoLocation();
+        initGeoLocation(); // Initializes geolocation
+    }
+	
+	function showRegisterForm() {
+        hideElement($('login-form')); // Hides the login form
+        showElement($('register-form')); // Shows the registration form
+        hideBottomSections(); // Hide bottom sections of the website
+        hideElement($('main-section')); // Hide the yellow section when the form is active
+    }
+
+    function showLoginForm() {
+        hideElement($('register-form')); // Hides the registration form
+        showElement($('login-form')); // Shows the login form
+        hideBottomSections(); // Hide bottom sections of the website
+        hideElement($('main-section')); // Hide the yellow section when the form is active
+    }
+
+    function showBottomSections() {
+        // Show all the bottom sections when user is logged in or registered
+        showElement($('item-nav'));
+        showElement($('item-list'));
+        showElement(document.querySelector('footer'));
+        showElement($('main-section')); // Show the yellow section again when logged in
+    }
+
+    function hideBottomSections() {
+        // Hide all the bottom sections when showing login or registration forms
+        hideElement($('item-nav'));
+        hideElement($('item-list'));
+        hideElement(document.querySelector('footer'));
+    }
+	
+	/**
+     * Handles the registration process
+     */
+    function registerUser() {
+        // Get form values
+        const userId = $('new-username').value.trim();
+        const password = $('new-password').value.trim();
+        const firstName = $('first-name').value.trim();
+        const lastName = $('last-name').value.trim();
+
+        // Basic validation
+        if (!userId || !password || !firstName || !lastName) {
+            $('register-error').textContent = 'All fields are required.';
+            return;
+        }
+
+        // Hash password using MD5 if necessary before sending
+        const hashedPassword = md5(userId + md5(password)); // Assuming md5 is available globally
+
+        // Prepare request payload
+        const payload = JSON.stringify({
+            user_id: userId,
+            password: hashedPassword,
+            first_name: firstName,
+            last_name: lastName
+        });
+
+        // Send AJAX request to the server
+        fetch('./register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: payload
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'OK') {
+                alert('Registration successful!');
+                clearRegistrationForm();
+                showLoginForm(); // Switch to login form
+            } else {
+                $('register-error').textContent = data.status || 'User creation failed. Please try again.';
+            }
+        })
+        .catch(error => {
+            console.error('Error during registration:', error);
+            $('register-error').textContent = 'An error occurred. Please try again later.';
+        });
+    }
+	
+	/**
+     * Clears the registration form fields and error message
+     */
+    function clearRegistrationForm() {
+        $('new-username').value = '';
+        $('new-password').value = '';
+        $('first-name').value = '';
+        $('last-name').value = '';
+        $('register-error').textContent = '';
     }
 	
 	/**

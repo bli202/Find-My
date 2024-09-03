@@ -34,14 +34,31 @@
 
     <section class="main-section">
     
-     <div id="login-form">
- 	    <label for="username">Username:</label>
- 	    <input id="username" name="username" type="text">
- 	    <label for="password">Password:</label>
- 	    <input id="password" name="password" type="password">
- 	    <button id="login-btn">Login</button>
- 	    <p id="login-error"></p>
-    </div>
+     <!-- Existing Login Form -->
+      <div id="login-form">
+        <label for="username">Username:</label>
+        <input id="username" name="username" type="text">
+        <label for="password">Password:</label>
+        <input id="password" name="password" type="password">
+        <button id="login-btn">Login</button>
+        <p id="login-error"></p>
+        <p><a href="#" id="show-register">Create an account</a></p> <!-- Link to show the registration form -->
+      </div>
+
+      <!-- New Registration Form -->
+      <div id="register-form" style="display: none;"> <!-- Make sure it's hidden initially -->
+        <label for="new-username">Username:</label>
+        <input id="new-username" name="username" type="text">
+        <label for="new-password">Password:</label>
+        <input id="new-password" name="password" type="password">
+        <label for="first-name">First Name:</label>
+        <input id="first-name" name="first-name" type="text">
+        <label for="last-name">Last Name:</label>
+        <input id="last-name" name="last-name" type="text">
+        <button id="register-btn">Register</button>
+        <p id="register-error"></p>
+        <p><a href="#" id="show-login">Already have an account? Log in</a></p> <!-- Link to show the login form -->
+      </div>
     
       <aside id="item-nav">
         <div class="nav-icon">

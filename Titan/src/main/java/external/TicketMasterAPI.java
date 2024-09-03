@@ -12,7 +12,7 @@ public class TicketMasterAPI {
 	
 	private final static String URL = "https://app.ticketmaster.com/discovery/v2/events.json";
 	private static final String DEFAULT_TERM = ""; // no restriction
-	private static final String API_KEY = "mbeLZk2MxpzBSBPHowrGGENtYGzASr3I";
+	private static final String API_KEY = "pkul3qGg9h5Rqc0iTKNtHcZ3f163KoQu";
 	
 	/**
 	 * Helper methods
@@ -203,6 +203,7 @@ public class TicketMasterAPI {
 	
 	public static void main(String[] args) {
 		TicketMasterAPI tmApi = new TicketMasterAPI();
+		System.out.println(API_KEY);
 		// Mountain View, CA
 		// tmApi.queryAPI(37.38, -122.08);
 		// Houston, TX

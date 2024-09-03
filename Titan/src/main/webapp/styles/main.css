@@ -96,48 +96,96 @@ ul {
 	color: #FBAF41;
 }
 
-/**
- * login form
- */
-#login-form {
-  color: #624630;
-  margin: 0px auto;
-  overflow: auto;
-  padding: 40px;
-  width: 300px;
+#login-form, #register-form {
+    color: #624630;
+    margin: 20px auto; /* Adjust margin for better spacing */
+    overflow: auto;
+    padding: 20px; /* Reduced padding to fit the design better */
+    width: 300px; /* Adjust width if needed */
+    background-color: #F2EBD9; /* Ensure a uniform background */
+    border-radius: 5px; /* Rounded corners for a smoother look */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-#login-form label {
-  display: block;
+/* Specific styles for form elements */
+#login-form label, #register-form label,
+#login-form input, #register-form input,
+#login-form button, #register-form button,
+#login-form p, #register-form p {
+    display: block;
+    margin-bottom: 10px;
 }
 
-#login-form input {
-  border: none;
-  display: block;
-  margin-bottom: 10px;
-  padding: 8px;
-  width: 100%;
+#login-form button, #register-form button {
+    cursor: pointer;
+    float: right;
+    padding: 8px 20px;
+    text-align: right;
 }
 
-#login-form button {
-  cursor: pointer;
-  float: right;
-  padding: 8px 20px;
-  text-align: right;
+#login-error, #register-error {
+    clear: both;
+    color: #990000;
+    padding-top: 10px;
 }
 
-#login-error {
-  clear: both;
-  color: #990000;
-  padding-top: 10px;
+.form-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #218838;
+}
+
+.error-message {
+    color: #e74c3c;
+    text-align: center;
 }
 
 
-/**
- * main section
- */
 .main-section {
-	background: #F3BB43;
+    background: #F3BB43;
+    padding: 20px;
+    transition: all 0.3s ease; /* Smooth transition for hide/show */
+}
+
+/* Hide main section when login/register form is active */
+.hidden-section {
+    display: none; /* Hide the yellow background */
 }
 
 /**
